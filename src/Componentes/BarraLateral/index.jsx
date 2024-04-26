@@ -22,7 +22,6 @@ const SectionEstilizada = styled.section`
 
 const BarraLateral = () => {
     return (
-        <SectionEstilizada>
             <AsideEstilizado>
                 <nav>
                     <ListaEstilizada>
@@ -75,8 +74,6 @@ const BarraLateral = () => {
                     </ListaEstilizada>
                 </nav>
             </AsideEstilizado>
-            <Banner/>
-        </SectionEstilizada>
 
     )
 }

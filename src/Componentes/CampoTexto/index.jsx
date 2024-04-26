@@ -5,7 +5,7 @@ border-radius: 10px;
 border: solid 2px #C98CF1;
 background: transparent;
 height: 56px;
-min-width: 602px;
+width: 45%;
 padding: 12px 16px;
 
 box-sizing: border-box;

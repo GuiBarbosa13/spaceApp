@@ -3,21 +3,24 @@ import styled from "styled-components";
 
 const DivEstilizada = styled.div`
     background-image: url("/imagens/banner.png");
+    background-repeat: no-repeat;
     background-size: cover;
     height: 328px;
     border-radius: 20px;
     display: flex;
+    flex-grow: 1;
+    margin: 0;
     align-items: center;
-    padding-left: 64px;
-    width: 100%;
+    max-width: 100%;
 
     h3{
         font-weight: 400;
         font-size: 40px;
+        line-height: 48px;
         color: #FFF;
         font-family: 'GandhiSansRegular';
-        margin: 0;
-        box-sizing: border-box;
+        max-width: 300px;
+        padding: 0 64px;
     }
 `
 
