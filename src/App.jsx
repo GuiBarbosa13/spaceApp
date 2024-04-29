@@ -17,9 +17,9 @@ img{
 `;
 
 const AppContainer = styled.div`
-  width: 1440px;
-  margin: 0 auto;
+  width: 1180px;
   max-width: 100%;
+  margin: 0 auto;
 `
 
 const MainContainer = styled.main`
