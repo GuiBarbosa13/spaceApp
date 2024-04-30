@@ -21,7 +21,7 @@ const SecaoFotos = styled.section`
 
 
 
-const Galeria = ({fotos = []}) => {
+const Galeria = ({fotos = [], aoFotoSelecionada}) => {
     return (
         <>
             <Tags/>
@@ -32,7 +32,7 @@ const Galeria = ({fotos = []}) => {
                         Navegue pela Galeria
                     </Titulo>
                     <SecaoFotos>
-                        {fotos.map(foto => <Imagem foto={foto} key={foto.id}/>)}
+                        {fotos.map(foto => <Imagem aoZoomSolicitado = {aoFotoSelecionada} foto={foto} key={foto.id}/>)}
                     </SecaoFotos>
                     
                 </SecaoFluida>

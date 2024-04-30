@@ -6,6 +6,7 @@ import Banner from "./Componentes/Banner";
 import Galeria from "./Componentes/Galeria";
 import Fotos from "./fotos.json";
 import { useState } from "react";
+import ModalDeZoom from "./Componentes/ModalDeZoom";
 
 
 const FundoGradiente = styled.div`
@@ -37,6 +38,7 @@ const ConteudoGaleria = styled.section`
 
 function App() {
   const [fotosDaGaleria, SetFotosDaGaleria] = useState(Fotos);
+  const [fotoSelecionada, setFotoSelecionada] = useState(null);
 
   return (
     <FundoGradiente>
@@ -51,13 +53,15 @@ function App() {
           <ConteudoGaleria>
 
           <Banner/>
-          <Galeria fotos = {fotosDaGaleria}/>
+          <Galeria aoFotoSelecionada = {foto => setFotoSelecionada(foto)} fotos = {fotosDaGaleria}/>
           
           </ConteudoGaleria>
 
         </MainContainer>
           
       </AppContainer>
+
+      <ModalDeZoom foto={fotoSelecionada}/>
       </FundoGradiente>
   )
 }

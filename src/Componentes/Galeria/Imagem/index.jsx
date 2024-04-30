@@ -4,9 +4,10 @@ import styled from "styled-components";
 
 const FigureEstilizada = styled.figure`
     display: flex;
+    flex: 1 0 45%;
     flex-direction: column;
     margin:0;
-    max-width: calc(50% - 24px);
+    max-width: 90%;
     width: 100%;
 `
 
@@ -48,6 +49,7 @@ const FigCaptionEstilizada = styled.figcaption`
             button{
                 background-color: transparent;
                 border: none;
+                cursor: pointer;
             }
         }
     }
@@ -55,7 +57,7 @@ const FigCaptionEstilizada = styled.figcaption`
 `
 
 
-const Imagem = ({foto}) => {
+const Imagem = ({foto, aoZoomSolicitado}) => {
     return(
         <FigureEstilizada>
             <ImagemEstilizada src={foto.path} alt={foto.titulo}/>
@@ -65,7 +67,7 @@ const Imagem = ({foto}) => {
                     <p>{foto.fonte}</p>
                     <div>
                         <button><MdFavoriteBorder fill="#fff" size={25}/></button>
-                        <button><FaExpandArrowsAlt fill="#fff" size={20} /></button>
+                        <button onClick={() => aoZoomSolicitado(foto)}><FaExpandArrowsAlt fill="#fff" size={20} /></button>
                     </div>
                     
                 </footer>
