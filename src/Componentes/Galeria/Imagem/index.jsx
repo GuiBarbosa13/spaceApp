@@ -4,10 +4,10 @@ import styled from "styled-components";
 
 const FigureEstilizada = styled.figure`
     display: flex;
-    flex: 1 0 45%;
+    flex: ${props => props.$expandida? "1" : "1 0 45%"};
     flex-direction: column;
     margin:0;
-    max-width: 90%;
+    max-width: 100%;
     width: 100%;
 `
 
@@ -53,13 +53,14 @@ const FigCaptionEstilizada = styled.figcaption`
             }
         }
     }
-
+`
+const BotaoExpandir = styled.button`
+    display: ${props => props.expandida ? "none" : "inline-block"};
 `
 
-
-const Imagem = ({foto, aoZoomSolicitado}) => {
+const Imagem = ({foto, aoZoomSolicitado, expandida}) => {
     return(
-        <FigureEstilizada>
+        <FigureEstilizada $expandida={expandida}>
             <ImagemEstilizada src={foto.path} alt={foto.titulo}/>
             <FigCaptionEstilizada>
                 <h3>{foto.titulo}</h3>
@@ -67,7 +68,12 @@ const Imagem = ({foto, aoZoomSolicitado}) => {
                     <p>{foto.fonte}</p>
                     <div>
                         <button><MdFavoriteBorder fill="#fff" size={25}/></button>
-                        <button onClick={() => aoZoomSolicitado(foto)}><FaExpandArrowsAlt fill="#fff" size={20} /></button>
+                        <BotaoExpandir 
+                            onClick={() => aoZoomSolicitado(foto)} 
+                            $expandida = {expandida}
+                        >
+                            <FaExpandArrowsAlt fill="#fff" size={20} />
+                        </BotaoExpandir>
                     </div>
                     
                 </footer>
