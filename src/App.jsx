@@ -36,33 +36,47 @@ const ConteudoGaleria = styled.section`
   flex-grow: 1;
 `
 
+
 function App() {
   const [fotosDaGaleria, SetFotosDaGaleria] = useState(Fotos);
+
   const [fotoSelecionada, setFotoSelecionada] = useState(null);
+
+  const aoAlternarFavorito = (foto) => {
+    console.log(foto)
+  }
+
+  const fecharModal = () => {
+    setFotoSelecionada(null);
+  };
 
   return (
     <FundoGradiente>
-      <EstilosGlobais/>
+      <EstilosGlobais />
       <AppContainer>
 
-        <Cabecalho/>
+        <Cabecalho />
 
         <MainContainer>
-          <BarraLateral/>
+          <BarraLateral />
 
           <ConteudoGaleria>
 
-          <Banner/>
-          <Galeria aoFotoSelecionada = {foto => setFotoSelecionada(foto)} fotos = {fotosDaGaleria}/>
-          
+            <Banner />
+            <Galeria
+              aoFotoSelecionada={foto => setFotoSelecionada(foto)} fotos={fotosDaGaleria}
+              aoFavoritar={aoAlternarFavorito}
+            />
+
           </ConteudoGaleria>
 
         </MainContainer>
-          
+
       </AppContainer>
 
-      <ModalDeZoom foto={fotoSelecionada}/>
-      </FundoGradiente>
+      <ModalDeZoom foto={fotoSelecionada} aoFechar={fecharModal} />
+
+    </FundoGradiente>
   )
 }
 

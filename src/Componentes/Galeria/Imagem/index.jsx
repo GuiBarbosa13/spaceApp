@@ -59,7 +59,7 @@ const BotaoFavorito = styled.button`
     cursor: pointer;
 `
 
-const Imagem = ({ foto, aoZoomSolicitado, expandida }) => {
+const Imagem = ({ foto, aoZoomSolicitado, expandida, aoFavoritar }) => {
     let display = expandida? "none" : "inline-block";
 
     return (
@@ -70,8 +70,14 @@ const Imagem = ({ foto, aoZoomSolicitado, expandida }) => {
                 <footer>
                     <p>{foto.fonte}</p>
                     <div>
-                        <BotaoFavorito><MdFavoriteBorder fill="#fff" size={25} /></BotaoFavorito>
+                        <BotaoFavorito
+                        onClick={() => aoFavoritar(foto)}
+                        >
+                            <MdFavoriteBorder fill="#fff" size={25} />
+                        </BotaoFavorito>
+
                         <BotaoExpandir
+                            aria-hidden = {expandida}
                             $display={display}
                             onClick={() => aoZoomSolicitado(foto)}
                         >

@@ -2,6 +2,7 @@ import Titulo from "../../Titulo";
 
 import Fotos from "../../../fotos.json"
 import styled from "styled-components";
+import ModalDeZoom from "../../ModalDeZoom";
 
 const PopularesContainer = styled.div`
     display: flex;
@@ -17,6 +18,7 @@ const FotosContainer = styled.div`
 
 const FotoEstilizada = styled.img`
     border-radius: 24px;
+    cursor: pointer;
 `
 
 const VerMais = styled.button`
@@ -38,7 +40,7 @@ const Populares = () => {
             <Titulo alinhamento="center">Populares</Titulo>
 
             <FotosContainer>
-                {fotosPopulares.map(foto => <FotoEstilizada src={foto.path} key= {foto.id} alt={foto.titulo}/>)}
+                {fotosPopulares.map(foto => <FotoEstilizada src={foto.path} key= {foto.id} alt={foto.titulo} />)}
                 <VerMais>Ver mais</VerMais>
             </FotosContainer>
             

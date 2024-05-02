@@ -35,18 +35,23 @@ const DialogEstilizada = styled.dialog`
     }
 `
 
-const ModalDeZoom = ({ foto }) => {
+
+const ModalDeZoom = ({ foto, aoFechar }) => {
+
     return (
         <>
             {foto && <>
-                <Overlay />
-                <DialogEstilizada open={!!foto}>
-                    <Imagem foto={foto} expandida={true}/>
-                    <form method="dialog">
-                        <button type="submit"><IoCloseCircleOutline color="fff" size={40}/></button>
-                    </form>
-                </DialogEstilizada>
+                <Overlay/>
 
+                <DialogEstilizada open={!!foto}>
+                    
+                    <Imagem foto={foto} expandida={true}/>
+                    
+                    <form method="dialog">
+                        <button onClick={aoFechar}><IoCloseCircleOutline color="fff" size={40}/></button>
+                    </form>
+                    
+                </DialogEstilizada>
             </>}
         </>
     )
