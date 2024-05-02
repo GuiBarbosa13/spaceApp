@@ -61,6 +61,7 @@ const BotaoFavorito = styled.button`
 
 const Imagem = ({ foto, aoZoomSolicitado, expandida, aoFavoritar }) => {
     let display = expandida? "none" : "inline-block";
+    const iconeFav = foto.favorita? '/icones/favorito-ativo.png' : '/icones/favorito.png';
 
     return (
         <FigureEstilizada $expandida={expandida}>
@@ -73,7 +74,7 @@ const Imagem = ({ foto, aoZoomSolicitado, expandida, aoFavoritar }) => {
                         <BotaoFavorito
                         onClick={() => aoFavoritar(foto)}
                         >
-                            <MdFavoriteBorder fill="#fff" size={25} />
+                            <img src={iconeFav} alt="ícone de favorito" />
                         </BotaoFavorito>
 
                         <BotaoExpandir
