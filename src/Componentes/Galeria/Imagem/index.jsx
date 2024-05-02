@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 const FigureEstilizada = styled.figure`
     display: flex;
-    flex: ${props => props.$expandida? "1" : "1 0 45%"};
+    flex: ${props => props.$expandida ? "1" : "1 0 45%"};
     flex-direction: column;
     margin:0;
     max-width: 100%;
@@ -44,38 +44,41 @@ const FigCaptionEstilizada = styled.figcaption`
             margin: 0;
             flex-grow: 1;
         }
-
-        div{
-            button{
-                background-color: transparent;
-                border: none;
-                cursor: pointer;
-            }
-        }
     }
 `
 const BotaoExpandir = styled.button`
-    display: ${props => props.expandida ? "none" : "inline-block"};
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: ${props => props.$display};
 `
 
-const Imagem = ({foto, aoZoomSolicitado, expandida}) => {
-    return(
+const BotaoFavorito = styled.button`
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+`
+
+const Imagem = ({ foto, aoZoomSolicitado, expandida }) => {
+    let display = expandida? "none" : "inline-block";
+
+    return (
         <FigureEstilizada $expandida={expandida}>
-            <ImagemEstilizada src={foto.path} alt={foto.titulo}/>
+            <ImagemEstilizada src={foto.path} alt={foto.titulo} />
             <FigCaptionEstilizada>
                 <h3>{foto.titulo}</h3>
                 <footer>
                     <p>{foto.fonte}</p>
                     <div>
-                        <button><MdFavoriteBorder fill="#fff" size={25}/></button>
-                        <BotaoExpandir 
-                            onClick={() => aoZoomSolicitado(foto)} 
-                            $expandida = {expandida}
+                        <BotaoFavorito><MdFavoriteBorder fill="#fff" size={25} /></BotaoFavorito>
+                        <BotaoExpandir
+                            $display={display}
+                            onClick={() => aoZoomSolicitado(foto)}
                         >
                             <FaExpandArrowsAlt fill="#fff" size={20} />
                         </BotaoExpandir>
                     </div>
-                    
+
                 </footer>
             </FigCaptionEstilizada>
         </FigureEstilizada>
