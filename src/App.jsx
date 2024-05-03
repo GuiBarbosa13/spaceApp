@@ -59,6 +59,14 @@ function App() {
     setFotoSelecionada(null);
   };
 
+  const [tagClicada, setTagClicada] = useState({});
+
+  const aoClicarTag = (tagEscolhida) => {
+    setTagClicada({...tagEscolhida, tagClicada})
+  }
+
+  console.log(tagClicada);
+
   return (
     <FundoGradiente>
       <EstilosGlobais />
@@ -75,6 +83,8 @@ function App() {
             <Galeria
               aoFotoSelecionada={foto => setFotoSelecionada(foto)} fotos={fotosDaGaleria}
               aoFavoritar={aoAlternarFavorito}
+              aoClicarTag={aoClicarTag}
+              tagClicada = {tagClicada}
             />
 
           </ConteudoGaleria>

@@ -21,10 +21,13 @@ const SecaoFotos = styled.section`
 
 
 
-const Galeria = ({fotos = [], aoFotoSelecionada, aoFavoritar}) => {
+const Galeria = ({fotos = [], aoFotoSelecionada, aoFavoritar, aoClicarTag, tagClicada}) => {
+    const fotoFiltrada = fotos.filter(foto => foto.tagId === tagClicada.id);
+    const filtro = tagClicada.id === 0 ? fotos : fotoFiltrada;
+    
     return (
         <>
-            <Tags/>
+            <Tags aoClicarTag = {aoClicarTag}/>
             
             <GaleriaContainer>
                 <SecaoFluida>
@@ -32,7 +35,10 @@ const Galeria = ({fotos = [], aoFotoSelecionada, aoFavoritar}) => {
                         Navegue pela Galeria
                     </Titulo>
                     <SecaoFotos>
-                        {fotos.map(foto => <Imagem aoZoomSolicitado = {aoFotoSelecionada} foto={foto} key={foto.id} expandida={false} aoFavoritar={aoFavoritar}/>)}
+                          
+                          {filtro.map(foto => <Imagem aoZoomSolicitado = {aoFotoSelecionada} foto={foto} key={foto.id} expandida={false} aoFavoritar={aoFavoritar}/>)}
+                        
+                        {/* {fotos.map(foto => <Imagem aoZoomSolicitado = {aoFotoSelecionada} foto={foto} key={foto.id} expandida={false} aoFavoritar={aoFavoritar}/>)} */}
                     </SecaoFotos>
                     
                 </SecaoFluida>

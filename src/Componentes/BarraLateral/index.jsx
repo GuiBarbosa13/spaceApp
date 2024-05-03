@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import ItemNavegacao from "./ItemNavegacao";
-import Banner from "../Banner";
 
 const ListaEstilizada = styled.ul`
     list-style: none;
