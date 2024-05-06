@@ -7,11 +7,11 @@ display: flex;
 justify-content: space-between;
 `
 
-const Cabecalho = () =>{
+const Cabecalho = ({setFiltro}) =>{
     return (
         <HeaderEstlizado>
             <img src="/imagens/logo.png" alt="Logo SpaceApp"/>
-            <CampoTexto/>
+            <CampoTexto setFiltro = {setFiltro}/>
         </HeaderEstlizado>
     )
 }

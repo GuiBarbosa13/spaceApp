@@ -36,18 +36,16 @@ const BotaoEstlizado = styled.button`
     }
     `;
 
-const Tags = ({aoClicarTag}) => {
+const Tags = ({setTag}) => {
     return(
+        
         <TagsContainer>  
             <p>Busque por tags:</p>
             
             <BotoesConatiner>
-            {tags.map(tag => <BotaoEstlizado key={tag.id} onClick={() => aoClicarTag(tag)}>{tag.titulo}</BotaoEstlizado>)}
+            {tags.map(tag => <BotaoEstlizado key={tag.id} onClick={() => setTag(tag.tag)}>{tag.titulo}</BotaoEstlizado>)}
             </BotoesConatiner>
-        </TagsContainer>
-
-        
-        
+        </TagsContainer>     
     )
 }
 

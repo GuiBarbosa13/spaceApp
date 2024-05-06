@@ -21,9 +21,9 @@ font-size: 20px;
 line-height: 20px;
 `
 
-const CampoTexto = () =>{
+const CampoTexto = ({setFiltro}) =>{
     return(
-        <InputEstilizado placeholder="O que você procura?"></InputEstilizado>
+        <InputEstilizado onChange={(evento) => { setFiltro(evento.target.value) }} placeholder="O que você procura?"></InputEstilizado>
     )
 }
 
